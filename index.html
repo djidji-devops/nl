@@ -212,12 +212,13 @@ h1 .hl{color:var(--accent)}
 }
 
 /* ── Marquee ─────────────────────────────────────────── */
-.marquee-wrap{overflow:hidden;background:var(--accent);padding:13px 0}
-.marquee-track{display:flex;white-space:nowrap;animation:marquee 22s linear infinite}
-.marquee-track:hover{animation-play-state:paused}
+.marquee-wrap{overflow:hidden;background:var(--accent);padding:13px 0;display:flex}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 22s linear infinite;will-change:transform;flex-shrink:0}
+.marquee-track2{animation-delay:-11s}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused}
 .marquee-item{padding:0 36px;font-size:13px;font-weight:800;color:#000;letter-spacing:.8px;text-transform:uppercase}
 .marquee-sep{opacity:.35}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 
 /* ── Section base ────────────────────────────────────── */
 section{padding:100px 5%}
@@ -500,6 +501,7 @@ footer{
 
 <!-- ── Marquee ── -->
 <div class="marquee-wrap" aria-hidden="true">
+  <!-- Single set of items; CSS animation + will-change handles looping visually -->
   <div class="marquee-track">
     <span class="marquee-item">Šlep Obrenovac <span class="marquee-sep">✦</span></span>
     <span class="marquee-item">NL Petrović Obrenovac <span class="marquee-sep">✦</span></span>
@@ -508,6 +510,9 @@ footer{
     <span class="marquee-item">Auto šlep 24h <span class="marquee-sep">✦</span></span>
     <span class="marquee-item">Non-stop 00–24 <span class="marquee-sep">✦</span></span>
     <span class="marquee-item">Transport tereta do 12t <span class="marquee-sep">✦</span></span>
+  </div>
+  <!-- Second track for seamless loop (only 1 duplicate set instead of duplicating each item) -->
+  <div class="marquee-track marquee-track2" aria-hidden="true">
     <span class="marquee-item">Šlep Obrenovac <span class="marquee-sep">✦</span></span>
     <span class="marquee-item">NL Petrović Obrenovac <span class="marquee-sep">✦</span></span>
     <span class="marquee-item">Hitna pomoć na putu <span class="marquee-sep">✦</span></span>
@@ -797,7 +802,7 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, {passive: true});
 
-// ── Scroll reveal (Intersection Observer)
+// ── Scroll reveal – stagger computed once per parent, no repeated DOM queries
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -805,17 +810,26 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(e.target);
     }
   });
-}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+}, {threshold: 0.1, rootMargin: '0px 0px -32px 0px'});
 
-document.querySelectorAll('.reveal').forEach((el, i) => {
-  // stagger siblings in same parent
-  const siblings = [...el.parentElement.querySelectorAll('.reveal')];
-  const idx = siblings.indexOf(el);
-  el.style.transitionDelay = (idx * 0.07) + 's';
-  observer.observe(el);
+// Group by parent in a single pass to avoid O(n²) querySelectorAll
+const parentMap = new Map();
+document.querySelectorAll('.reveal').forEach(el => {
+  const p = el.parentElement;
+  if (!parentMap.has(p)) parentMap.set(p, []);
+  parentMap.get(p).push(el);
+});
+parentMap.forEach(siblings => {
+  siblings.forEach((el, idx) => {
+    // Skip delay on hero elements so LCP isn't blocked
+    if (!el.closest('.hero')) {
+      el.style.transitionDelay = (idx * 0.07) + 's';
+    }
+    observer.observe(el);
+  });
 });
 
-// ── FAQ accordion (smooth height)
+// ── FAQ accordion
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.closest('.faq-item');
