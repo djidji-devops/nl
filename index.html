@@ -3,415 +3,465 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Šlep Služba Obrenovac – NL Petrović | Šlepanje Vozila, Pomoć na Putu 24/7</title>
-<meta name="description" content="Šlep služba NL Petrović Obrenovac – brza pomoć na putu, šlepanje automobila i motocikala, transport vozila po celoj Srbiji. Non-stop 0–24h, 365 dana. ☎ +381 63 770 3572"/>
+<title>Šlep Služba NL Petrović – Obrenovac | 24/7</title>
+<meta name="description" content="Šlep služba NL Petrović Obrenovac – brza pomoć na putu, šlepanje automobila i motocikala, transport vozila po celoj Srbiji. Non-stop 0–24h."/>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
 :root{
-  --gold:#e85d04;--gold2:#fb923c;--gold3:#fed7aa;
-  --dark:#090909;--dark2:#101010;--dark3:#141008;
-  --card:#191210;--border:rgba(232,93,4,.18);
-  --text:#f2ede8;--muted:#8a7060;
-  --radius:14px;--trans:.3s cubic-bezier(.4,0,.2,1);
+  --y:#f5c400;--y2:#ffe566;--y3:#fff8cc;
+  --dark:#08080a;--dark2:#0f0f12;--dark3:#13130f;
+  --card:#111113;--border:rgba(245,196,0,.15);
+  --text:#f0ede0;--muted:#706e60;
+  --red:#e63030;--red2:#ff4444;
+  --r:16px;--t:.28s cubic-bezier(.4,0,.2,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',Arial,sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--dark)}
-::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--y);border-radius:3px}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:999;
+/* ── NAV ── */
+nav{position:fixed;inset:0 0 auto;z-index:999;
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 5%;background:rgba(9,9,9,.92);
-  backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:var(--trans)}
-nav.scrolled{padding:10px 5%;box-shadow:0 4px 30px rgba(0,0,0,.7)}
-.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo{width:44px;height:44px;object-fit:contain;flex-shrink:0;border-radius:10px}
-.nav-text-wrap{display:flex;flex-direction:column}
-.nav-brand .n1{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
-.nav-brand .n2{font-size:18px;font-weight:900;
-  background:linear-gradient(90deg,var(--gold),var(--gold2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px}
-.nav-btns{display:flex;gap:8px}
-.nav-btns a{text-decoration:none;padding:8px 16px;border-radius:8px;
-  font-size:13px;font-weight:700;transition:var(--trans);white-space:nowrap}
-.nav-btns a:hover{transform:translateY(-2px);filter:brightness(1.1)}
-.b-call{background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff!important}
-.b-viber{background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff!important}
-.b-fb{background:linear-gradient(135deg,#1d4ed8,#1e40af);color:#fff!important}
-.b-map{background:linear-gradient(135deg,var(--gold),#c2410c);color:#fff!important}
-
-.hero{min-height:100vh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;padding:120px 5% 80px;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(232,93,4,.1) 0%, transparent 70%),
-    linear-gradient(180deg,var(--dark) 0%,var(--dark3) 100%);
-  position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e85d04' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events:none}
-.hero-particles{position:absolute;inset:0;pointer-events:none}
-.hero-particles span{position:absolute;border-radius:50%;animation:float linear infinite;background:var(--gold)}
-@keyframes float{0%{transform:translateY(100vh);opacity:0}10%{opacity:.3}90%{opacity:.3}100%{transform:translateY(-10vh);opacity:0}}
-
-.hero-logo{width:400px;height:250px;max-width:90vw;object-fit:contain;
-  filter:drop-shadow(0 6px 28px rgba(232,93,4,.55));
-  animation:fadeUp .7s both}
-
-.hero-badge{display:inline-flex;align-items:center;gap:8px;
-  background:rgba(232,93,4,.1);border:1px solid rgba(232,93,4,.3);
-  border-radius:999px;padding:7px 18px;font-size:13px;color:var(--gold2);
-  margin-bottom:30px;animation:fadeUp .8s both}
-.blink{display:inline-block;width:8px;height:8px;border-radius:50%;
-  background:var(--gold);animation:blink 1.6s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:900;line-height:1.1;animation:fadeUp .8s .1s both}
-.hero h1 em{font-style:normal;
-  background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold3));
+  padding:0 5%;height:66px;
+  background:rgba(8,8,10,.9);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);transition:var(--t)}
+nav.up{height:56px;background:rgba(8,8,10,.97)}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo img{height:38px;object-fit:contain}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-logo-text b{font-size:15px;font-weight:900;letter-spacing:.5px;
+  background:linear-gradient(90deg,var(--y),var(--y2));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{max-width:620px;margin:20px auto 0;font-size:1.05rem;color:var(--muted);line-height:1.75;animation:fadeUp .8s .2s both}
-.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px;animation:fadeUp .8s .3s both}
-.btn-gold{padding:14px 32px;border-radius:10px;font-size:15px;font-weight:800;
-  text-decoration:none;color:#fff;
-  background:linear-gradient(135deg,#dc2626,#b91c1c);
-  box-shadow:0 4px 24px rgba(220,38,38,.35);transition:var(--trans)}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(220,38,38,.55)}
-.btn-ghost{padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;
-  text-decoration:none;color:var(--gold2);
-  border:1.5px solid rgba(232,93,4,.4);transition:var(--trans)}
-.btn-ghost:hover{background:rgba(232,93,4,.08);transform:translateY(-3px)}
-.scroll-ind{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
-  color:var(--muted);font-size:12px;display:flex;flex-direction:column;align-items:center;gap:8px;
-  animation:bob 2s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.nav-logo-text small{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.nav-actions{display:flex;gap:7px;align-items:center}
+.nav-actions a{text-decoration:none;padding:7px 13px;border-radius:9px;
+  font-size:12px;font-weight:700;letter-spacing:.3px;transition:var(--t)}
+.nav-actions a:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.na-call{background:var(--red);color:#fff}
+.na-viber{background:#6d28d9;color:#fff}
+.na-fb{background:#1d4ed8;color:#fff}
+.na-map{background:linear-gradient(135deg,var(--y),#c9a000);color:#111;font-weight:800}
+.nav-phone{font-size:13px;font-weight:700;color:var(--y);text-decoration:none;
+  padding:7px 14px;border:1.5px solid rgba(245,196,0,.3);border-radius:9px;
+  transition:var(--t);white-space:nowrap}
+.nav-phone:hover{background:rgba(245,196,0,.08)}
 
-.steps{background:var(--dark2);padding:70px 5%}
-.steps-inner{max-width:900px;margin:0 auto;text-align:center}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:50px;position:relative}
-.steps-grid::before{content:'';position:absolute;top:36px;left:calc(16.6% + 20px);
-  right:calc(16.6% + 20px);height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));opacity:.3}
-.step{text-align:center;padding:0 20px;position:relative}
-.step-num{width:72px;height:72px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),#c2410c);
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;font-weight:900;color:#fff;
-  margin:0 auto 18px;box-shadow:0 4px 20px rgba(232,93,4,.3);font-family:serif}
-.step-title{font-size:1.05rem;font-weight:800;margin-bottom:8px;color:var(--gold2)}
-.step-text{font-size:.9rem;color:var(--muted);line-height:1.6}
+/* ── HERO ── */
+.hero{min-height:100svh;display:grid;place-items:center;
+  padding:80px 5% 60px;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(245,196,0,.07) 0%,transparent 65%),
+             linear-gradient(180deg,#08080a 0%,#0d0c06 100%)}
+.hero-grid-bg{position:absolute;inset:0;pointer-events:none;opacity:.04;
+  background-image:linear-gradient(var(--y) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--y) 1px,transparent 1px);
+  background-size:60px 60px}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-logo{width:400px;max-width:90vw;height:auto;
+  filter:drop-shadow(0 8px 40px rgba(245,196,0,.4));
+  margin-bottom:32px;animation:up .8s both}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,196,0,.08);border:1px solid rgba(245,196,0,.25);
+  border-radius:999px;padding:6px 16px;font-size:12px;font-weight:600;
+  color:var(--y2);margin-bottom:24px;animation:up .8s .05s both;letter-spacing:.3px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--y);
+  animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(245,196,0,.5)}60%{box-shadow:0 0 0 6px rgba(245,196,0,0)}}
+.hero h1{font-size:clamp(2rem,5.5vw,3.8rem);font-weight:900;line-height:1.08;
+  letter-spacing:-.5px;animation:up .8s .1s both}
+.hero h1 span{background:linear-gradient(90deg,var(--y),var(--y2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:1rem;color:var(--muted);line-height:1.8;
+  margin:20px auto 0;max-width:560px;animation:up .8s .15s both}
+.hero-cta{margin-top:36px;animation:up .8s .2s both}
+.btn-emergency{display:inline-flex;align-items:center;gap:12px;
+  padding:16px 36px;border-radius:12px;font-size:16px;font-weight:800;
+  text-decoration:none;color:#fff;letter-spacing:.3px;
+  background:linear-gradient(135deg,var(--red),#b91c1c);
+  box-shadow:0 4px 30px rgba(230,48,48,.4);transition:var(--t)}
+.btn-emergency:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(230,48,48,.6)}
+.btn-emergency .pulse-ring{display:inline-block;width:10px;height:10px;border-radius:50%;
+  background:#ff6b6b;animation:pulse-r 1.5s ease-in-out infinite}
+@keyframes pulse-r{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:48px;
+  animation:up .8s .25s both;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat strong{display:block;font-size:1.8rem;font-weight:900;
+  background:linear-gradient(135deg,var(--y),var(--y2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat span{font-size:.78rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase}
 
-section.cats{padding:90px 5%;background:var(--dark3)}
-.s-label{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
-.s-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;line-height:1.2}
-.s-sub{color:var(--muted);line-height:1.7;margin-top:10px;max-width:580px}
-.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
-.cat-card{background:var(--card);border:1px solid var(--border);
-  border-radius:var(--radius);overflow:hidden;transition:var(--trans);cursor:pointer}
-.cat-card:hover{transform:translateY(-8px);
-  border-color:rgba(232,93,4,.5);
-  box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(232,93,4,.2)}
-.cat-visual{width:100%;height:200px;display:flex;align-items:center;justify-content:center;
-  font-size:72px;transition:transform .5s ease,filter .5s ease;filter:brightness(.9);
-  position:relative;overflow:hidden}
-.cat-visual::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))}
-.cat-card:hover .cat-visual{transform:scale(1.03);filter:brightness(1)}
-.cv-auto{background:linear-gradient(135deg,#1c0f00,#2d1a00,#1c0f00)}
-.cv-moto{background:linear-gradient(135deg,#0a0a1a,#111133,#0a0a1a)}
-.cv-pomoc{background:linear-gradient(135deg,#0d1a00,#1a3300,#0d1a00)}
-.cat-icon-wrap{padding:24px 26px 20px;text-align:left}
-.cat-title{font-size:1.2rem;font-weight:800;color:var(--gold2);margin-bottom:10px}
-.cat-text{font-size:.9rem;color:var(--muted);line-height:1.65}
-.cat-footer{padding:16px 30px;
-  background:linear-gradient(135deg,rgba(232,93,4,.08),rgba(232,93,4,.03));
-  border-top:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  font-size:.85rem;color:var(--gold);font-weight:600}
-.cat-footer span{opacity:.6}
-.cat-arrow{font-size:18px;transition:var(--trans)}
-.cat-card:hover .cat-arrow{transform:translateX(5px)}
+/* ── DIVIDER ── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
 
-.info-strip{background:linear-gradient(135deg,#1a0800,#100500,#1a0800);
+/* ── SECTION WRAPPER ── */
+.sec{padding:90px 5%}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;
+  color:var(--y);text-transform:uppercase;margin-bottom:10px}
+.sec-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:900;line-height:1.18;letter-spacing:-.3px}
+.sec-sub{color:var(--muted);line-height:1.75;margin-top:10px;max-width:520px;font-size:.95rem}
+
+/* ── STEPS ── */
+.steps-bg{background:var(--dark2)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:50px;
+  background:var(--border);border-radius:var(--r);overflow:hidden}
+.step-card{background:var(--dark2);padding:36px 28px;position:relative}
+.step-num{width:52px;height:52px;border-radius:12px;
+  background:linear-gradient(135deg,var(--y),#c9a000);
+  display:grid;place-items:center;
+  font-size:20px;font-weight:900;color:#111;margin-bottom:20px}
+.step-card h3{font-size:1.05rem;font-weight:800;margin-bottom:8px;color:var(--y2)}
+.step-card p{font-size:.875rem;color:var(--muted);line-height:1.65}
+.step-card::after{content:attr(data-arrow);position:absolute;right:-14px;top:50%;
+  transform:translateY(-50%);font-size:22px;color:var(--y);z-index:2;opacity:.6}
+.step-card:last-child::after{display:none}
+
+/* ── SERVICES ── */
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+.cat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;transition:var(--t);cursor:default}
+.cat:hover{border-color:rgba(245,196,0,.4);transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.cat-img{height:180px;display:grid;place-items:center;font-size:64px;position:relative}
+.cat-img::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(17,17,19,.8) 0%,transparent 60%)}
+.ci-1{background:radial-gradient(ellipse at 50% 80%,rgba(245,196,0,.08),transparent 70%),#0e0d08}
+.ci-2{background:radial-gradient(ellipse at 50% 80%,rgba(109,40,217,.12),transparent 70%),#0a0a12}
+.ci-3{background:radial-gradient(ellipse at 50% 80%,rgba(34,197,94,.08),transparent 70%),#080e08}
+.cat-body{padding:22px 24px}
+.cat-body h3{font-size:1.05rem;font-weight:800;color:var(--y2);margin-bottom:9px}
+.cat-body p{font-size:.875rem;color:var(--muted);line-height:1.65}
+.cat-tag{display:inline-block;margin-top:14px;padding:4px 10px;border-radius:6px;
+  font-size:11px;font-weight:700;letter-spacing:.5px;
+  background:rgba(245,196,0,.1);color:var(--y);border:1px solid rgba(245,196,0,.2)}
+
+/* ── WHY US ── */
+.why-bg{background:var(--dark3)}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:50px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:28px;display:flex;gap:18px;align-items:flex-start;transition:var(--t)}
+.why-card:hover{border-color:rgba(245,196,0,.3);background:#141410}
+.why-ico{width:48px;height:48px;border-radius:12px;flex-shrink:0;
+  background:rgba(245,196,0,.1);border:1px solid rgba(245,196,0,.2);
+  display:grid;place-items:center;font-size:22px}
+.why-card h4{font-size:.95rem;font-weight:800;color:var(--y2);margin-bottom:6px}
+.why-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+/* ── INFO BAR ── */
+.infobar{background:linear-gradient(135deg,#0d0c06,#111009);
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 5%}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:32px;max-width:1000px;margin:0 auto}
-.info-item{display:flex;align-items:flex-start;gap:16px}
-.info-ico{width:48px;height:48px;border-radius:12px;flex-shrink:0;
-  background:rgba(232,93,4,.12);border:1px solid rgba(232,93,4,.2);
-  display:flex;align-items:center;justify-content:center;font-size:22px}
-.info-lbl{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.info-val{font-size:.95rem;font-weight:600;color:var(--text);line-height:1.5}
-.info-val a{color:var(--gold2);text-decoration:none}
-.info-val a:hover{text-decoration:underline}
+.infobar-grid{max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.ib-item{display:flex;align-items:flex-start;gap:14px}
+.ib-ico{width:44px;height:44px;border-radius:11px;flex-shrink:0;
+  background:rgba(245,196,0,.1);border:1px solid rgba(245,196,0,.15);
+  display:grid;place-items:center;font-size:20px}
+.ib-label{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.ib-val{font-size:.9rem;font-weight:600;color:var(--text);line-height:1.5}
+.ib-val a{color:var(--y2);text-decoration:none}
+.ib-val a:hover{text-decoration:underline}
 
-.contact-banner{background:linear-gradient(135deg,#1a0000,#0f0000);
-  padding:50px 5%;text-align:center;border-top:1px solid rgba(220,38,38,.25)}
-.contact-banner h3{font-size:1.4rem;font-weight:800;margin-bottom:8px}
-.contact-banner p{color:rgba(255,255,255,.6);margin-bottom:24px;font-size:.95rem}
-.btn-call-big{display:inline-flex;align-items:center;gap:10px;
-  padding:14px 36px;border-radius:10px;font-size:16px;font-weight:900;
-  text-decoration:none;color:#fff;
-  background:linear-gradient(135deg,#dc2626,#b91c1c);
-  box-shadow:0 4px 24px rgba(220,38,38,.4);transition:var(--trans)}
-.btn-call-big:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(220,38,38,.6)}
-
-.cta-wrap{padding:90px 5%;background:var(--dark2)}
-.cta{max-width:780px;margin:0 auto;text-align:center;
-  background:linear-gradient(135deg,rgba(232,93,4,.08),rgba(232,93,4,.03));
-  border:1px solid rgba(232,93,4,.2);border-radius:20px;padding:60px 40px}
-.cta h2{font-size:2rem;font-weight:900;margin-bottom:12px}
-.cta p{color:var(--muted);margin-bottom:32px;font-size:1rem}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.foot-brand{display:flex;align-items:center;gap:12px}
-.foot-logo{width:32px;height:32px;object-fit:contain;border-radius:7px}
-.foot-brand span{font-size:14px;font-weight:900;
-  background:linear-gradient(90deg,var(--gold),var(--gold2));
+/* ── CTA BANNER ── */
+.cta-banner{padding:80px 5%;text-align:center;
+  background:linear-gradient(135deg,#0d0b00,#111009);
+  border-top:1px solid var(--border)}
+.cta-banner h2{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;margin-bottom:12px}
+.cta-banner h2 span{background:linear-gradient(90deg,var(--y),var(--y2));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.foot-copy{font-size:12px;color:var(--muted)}
-.foot-links{display:flex;gap:14px}
-.foot-links a{color:var(--muted);text-decoration:none;font-size:12px;transition:var(--trans)}
-.foot-links a:hover{color:var(--gold)}
+.cta-banner p{color:var(--muted);font-size:.95rem;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-y{padding:13px 28px;border-radius:10px;font-size:14px;font-weight:800;
+  text-decoration:none;color:#111;
+  background:linear-gradient(135deg,var(--y),#c9a000);
+  box-shadow:0 4px 20px rgba(245,196,0,.3);transition:var(--t)}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,196,0,.5)}
+.btn-outline{padding:13px 28px;border-radius:10px;font-size:14px;font-weight:700;
+  text-decoration:none;color:var(--y2);
+  border:1.5px solid rgba(245,196,0,.35);transition:var(--t)}
+.btn-outline:hover{background:rgba(245,196,0,.07);transform:translateY(-2px)}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
-.reveal.visible{opacity:1;transform:none}
+/* ── FOOTER ── */
+footer{background:var(--dark);border-top:1px solid var(--border);
+  padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.foot-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.foot-logo img{height:28px;object-fit:contain}
+.foot-logo span{font-size:13px;font-weight:800;
+  background:linear-gradient(90deg,var(--y),var(--y2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot-copy{font-size:11px;color:var(--muted)}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap}
+.foot-links a{color:var(--muted);text-decoration:none;font-size:11px;transition:var(--t)}
+.foot-links a:hover{color:var(--y)}
 
-@media(max-width:900px){.cats-grid{grid-template-columns:1fr 1fr}}
+/* ── ANIMATIONS ── */
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
 
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .cats-grid{grid-template-columns:1fr 1fr}
+  .infobar-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
-  nav{padding:10px 4%;justify-content:center}
-  .nav-logo{display:none}
-  .nav-brand{justify-content:center}
-  .nav-text-wrap{display:flex;align-items:center;gap:7px}
-  .nav-brand .n1{display:inline;font-size:13px;letter-spacing:1px}
-  .nav-brand .n2{font-size:15px}
-  .nav-btns{display:none}
-  .hero{padding:100px 6% 70px}
-  .hero h1{font-size:1.9rem}
-  .hero-sub{font-size:.95rem}
-  .hero-badge{font-size:12px;padding:6px 14px}
-  .hero-cta{flex-direction:column;align-items:center;gap:12px}
-  .btn-gold,.btn-ghost{width:100%;max-width:320px;text-align:center;padding:13px 20px}
-  .steps{padding:55px 5%}
-  .steps-grid{grid-template-columns:1fr;gap:0}
-  .steps-grid::before{display:none}
-  .step{display:flex;align-items:flex-start;gap:16px;text-align:left;padding:20px 0;border-bottom:1px solid rgba(232,93,4,.1)}
-  .step:last-child{border-bottom:none}
-  .step-num{width:52px;height:52px;font-size:20px;flex-shrink:0;margin:0}
-  section.cats{padding:55px 5%}
-  .cats-grid{grid-template-columns:1fr;gap:20px}
-  .cat-visual{height:160px;font-size:56px}
-  .info-strip{padding:50px 5%}
-  .info-grid{grid-template-columns:1fr 1fr;gap:24px}
-  .contact-banner{padding:40px 5%}
-  .btn-call-big{width:100%;max-width:320px;justify-content:center}
-  .cta-wrap{padding:55px 5%}
-  .cta{padding:38px 22px}
-  .cta h2{font-size:1.5rem}
-  .cta-btns{flex-direction:column;align-items:center;gap:12px}
-  .cta-btns a{width:100%;max-width:300px;text-align:center}
-  footer{flex-direction:column;text-align:center;padding:28px 5%;gap:12px}
-  .foot-links{justify-content:center;flex-wrap:wrap}
+  nav{flex-direction:column;height:auto;padding:10px 4%;gap:8px}
+  .nav-logo img{height:30px}
+  .nav-actions{flex-wrap:wrap;justify-content:center;gap:5px}
+  .nav-actions a,.nav-phone{padding:6px 10px;font-size:11px}
+  .hero{padding:140px 5% 60px}
+  .hero-stats{gap:24px}
+  .hero-stat strong{font-size:1.4rem}
+  .steps-grid{grid-template-columns:1fr;gap:0;background:none;border-radius:0}
+  .step-card{border:1px solid var(--border);border-radius:var(--r);margin-bottom:12px}
+  .step-card::after{display:none}
+  .cats-grid{grid-template-columns:1fr}
+  .infobar-grid{grid-template-columns:1fr 1fr}
+  .sec{padding:60px 5%}
+  footer{flex-direction:column;text-align:center}
+  .foot-links{justify-content:center}
 }
 @media(max-width:480px){
-  .hero h1{font-size:1.65rem}
-  .info-grid{grid-template-columns:1fr}
-  .cats-grid{gap:16px}
-  .step-num{width:44px;height:44px;font-size:17px}
-}
-@media(max-width:360px){
-  .hero h1{font-size:1.45rem}
-  .btn-gold,.btn-ghost{font-size:14px}
+  .infobar-grid{grid-template-columns:1fr}
+  .why-grid{gap:12px}
+  .hero h1{font-size:1.75rem}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav">
-  <a class="nav-brand" href="#">
-    <svg class="nav-logo-svg" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:10px">
-      <rect width="44" height="44" rx="10" fill="url(#nng)"/>
-      <text x="22" y="30" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="18" fill="#fff">NL</text>
-      <defs><linearGradient id="nng" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
-    </svg>
-    <div class="nav-text-wrap">
-      <span class="n1">Šlep Služba</span>
-      <span class="n2">NL PETROVIĆ</span>
+  <a class="nav-logo" href="#">
+    <img src="logo.png" alt="NL Petrović"/>
+    <div class="nav-logo-text">
+      <b>NL PETROVIĆ</b>
+      <small>Šlep Služba</small>
     </div>
   </a>
-  <div class="nav-btns">
-    <a href="tel:+381637703572" class="b-call">🚨 Pozovi hitno</a>
-    <a href="viber://chat?number=%2B381637703572" class="b-viber">💜 Viber</a>
-    <a href="https://www.facebook.com/slepsluzbakombiprevoznlpetrovic" target="_blank" class="b-fb">👍 Facebook</a>
-    <a href="https://www.google.com/maps/place/%C5%A0lep+Slu%C5%BEba+NL+Petrovi%C4%87+Obrenovac/@44.6714778,20.2030388,17z/data=!3m1!4b1!4m6!3m5!1s0x475a159d850b680d:0xf4280cfb383d021c!8m2!3d44.6714778!4d20.2030388!16s%2Fg%2F11vt7t4njy?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="b-map">🗺 Mapa</a>
+  <div class="nav-actions">
+    <a href="tel:+381637703572" class="na-call">🚨 Pozovi hitno</a>
+    <a href="viber://chat?number=%2B381637703572" class="na-viber">💜 Viber</a>
+    <a href="https://www.facebook.com/slepsluzbakombiprevoznlpetrovic" target="_blank" class="na-fb">👍 Facebook</a>
+    <a href="https://www.google.com/maps/place/%C5%A0lep+Slu%C5%BEba+NL+Petrovi%C4%87+Obrenovac/@44.6714778,20.2030388,17z" target="_blank" class="na-map">🗺 Mapa</a>
+    <a href="tel:+381637703572" class="nav-phone">+381 63 770 3572</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-particles" id="particles"></div>
-  <div style="margin-bottom:24px">
-    <img src="logo.png" alt="NL Petrović" class="hero-logo"/>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <img src="logo.png" alt="NL Petrović Šlep Služba" class="hero-logo"/>
+    <div class="hero-pill"><span class="live-dot"></span> Dostupni smo odmah · 24h · 365 dana</div>
+    <h1>Šlep služba koja stiže<br>kada vam je <span>najpotrebnije</span></h1>
+    <p class="hero-desc">NL Petrović Obrenovac — šlepanje automobila i motocikala, hitna pomoć na putu i transport vozila po celoj Srbiji. Stižemo za 15–30 minuta.</p>
+    <div class="hero-cta">
+      <a href="tel:+381637703572" class="btn-emergency">
+        <span class="pulse-ring"></span> Pozovite hitno — +381 63 770 3572
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>15–30'</strong><span>Prosečan dolazak</span></div>
+      <div class="hero-stat"><strong>24/7</strong><span>Non-stop dostupni</span></div>
+      <div class="hero-stat"><strong>365</strong><span>Dana godišnje</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>Srbija pokrivena</span></div>
+    </div>
   </div>
-  <div class="hero-badge"><span class="blink"></span> Non-stop 0–24h · 365 dana · Cela Srbija</div>
-  <h1>Šlep služba koja stiže<br>kada vam je <em>najpotrebnije</em></h1>
-  <p class="hero-sub">
-    <strong>NL Petrović Šlep Služba Obrenovac</strong> — šlepanje automobila i motocikala,
-    hitna pomoć na putu i transport vozila po celoj Srbiji.
-    Krećemo odmah po pozivu, stižemo za 15–30 minuta.
-  </p>
-  <div class="hero-cta">
-    <a href="tel:+381637703572" class="btn-gold">🚨 Pozovite hitno – +381 63 770 3572</a>
-  </div>
-  <div class="scroll-ind">↓</div>
 </section>
 
-<div class="steps">
-  <div class="steps-inner">
-    <div class="s-label reveal" style="text-align:center">Kako funkcioniše</div>
-    <h2 class="s-title reveal" style="text-align:center">3 jednostavna koraka</h2>
-    <div class="steps-grid" style="margin-top:50px">
-      <div class="step reveal">
+<div class="divider"></div>
+
+<!-- KAKO FUNKCIONIŠE -->
+<div class="sec steps-bg">
+  <div class="sec-inner">
+    <div class="sec-label reveal">Kako funkcioniše</div>
+    <h2 class="sec-title reveal">3 jednostavna koraka</h2>
+    <p class="sec-sub reveal">Od poziva do rešavanja problema – brzo, bez komplikacija.</p>
+    <div class="steps-grid reveal">
+      <div class="step-card" data-arrow="→">
         <div class="step-num">1</div>
-        <div class="step-title">Pozovite nas</div>
-        <p class="step-text">Jedan poziv je sve što vam treba. Dostupni smo 24 sata dnevno, 7 dana u nedelji – uključujući praznike i noćne sate.</p>
+        <h3>Pozovite nas</h3>
+        <p>Jedan poziv je sve što trebate. Tu smo 24 sata dnevno, 7 dana u nedelji – uključujući praznike i noćne sate.</p>
       </div>
-      <div class="step reveal">
+      <div class="step-card" data-arrow="→">
         <div class="step-num">2</div>
-        <div class="step-title">Krećemo odmah</div>
-        <p class="step-text">Čim primimo poziv, kreće naš tim prema vama. Prosečan dolazak u Obrenovcu i okolini je svega 15 do 30 minuta.</p>
+        <h3>Krećemo odmah</h3>
+        <p>Čim primimo poziv, kreće naš tim prema vama. Prosečan dolazak u Obrenovcu i okolini je 15 do 30 minuta.</p>
       </div>
-      <div class="step reveal">
+      <div class="step-card">
         <div class="step-num">3</div>
-        <div class="step-title">Rešavamo problem</div>
-        <p class="step-text">Šlepamo vaše vozilo do servisa ili lokacije po vašem izboru. Bezbedno, brzo i po fer ceni – bez iznenađenja.</p>
+        <h3>Rešavamo problem</h3>
+        <p>Šlepamo vaše vozilo do servisa ili lokacije po vašem izboru. Bezbedno, brzo i po fer ceni – bez iznenađenja.</p>
       </div>
     </div>
   </div>
 </div>
 
-<section class="cats" id="usluge">
-  <div class="s-label reveal">Naše usluge</div>
-  <h2 class="s-title reveal">Šlep Služba Obrenovac – NL Petrović</h2>
-  <p class="s-sub reveal">Profesionalno šlepanje, pomoć na putu i transport po celoj Srbiji – moderna oprema, iskusan tim.</p>
-  <div class="cats-grid">
-    <div class="cat-card reveal">
-      <div class="cat-visual cv-auto">🚗</div>
-      <div class="cat-icon-wrap">
-        <div class="cat-title">🚗 Šlepanje automobila</div>
-        <p class="cat-text">Kvar, nezgoda ili hitan transport? Šlepamo sva putnička i kombi vozila do servisa ili bilo koje lokacije u Srbiji. Brzo, bezbedno, bez oštećenja.</p>
-      </div>
-      <div class="cat-footer"><span>Sva vozila prihvatamo</span><span class="cat-arrow">→</span></div>
-    </div>
-    <div class="cat-card reveal">
-      <div class="cat-visual cv-moto">🏍️</div>
-      <div class="cat-icon-wrap">
-        <div class="cat-title">🏍️ Šlepanje motocikala</div>
-        <p class="cat-text">Specijalizovana oprema za bezbedan prevoz svih vrsta motocikala – sportski, touring, enduro i klasični. Pažljivo rukovanje, nula rizika od oštećenja.</p>
-      </div>
-      <div class="cat-footer"><span>Specijalna oprema</span><span class="cat-arrow">→</span></div>
-    </div>
-    <div class="cat-card reveal">
-      <div class="cat-visual cv-pomoc">🔧</div>
-      <div class="cat-icon-wrap">
-        <div class="cat-title">🔧 Hitna pomoć na putu</div>
-        <p class="cat-text">Pukla guma, mrtva baterija, nestanak goriva, zaglavljivanje? Dolazimo na lice mesta i rešavamo problem odmah – bez čekanja, bez komplikacija.</p>
-      </div>
-      <div class="cat-footer"><span>Dolazimo odmah</span><span class="cat-arrow">→</span></div>
-    </div>
-  </div>
-</section>
+<div class="divider"></div>
 
-<div class="info-strip">
-  <div class="info-grid">
-    <div class="info-item reveal">
-      <div class="info-ico">📍</div>
-      <div>
-        <div class="info-lbl">Sedište</div>
-        <div class="info-val">
-          <a href="https://www.google.com/maps/place/%C5%A0lep+Slu%C5%BEba+NL+Petrovi%C4%87+Obrenovac/@44.6714778,20.2030388,17z/data=!3m1!4b1!4m6!3m5!1s0x475a159d850b680d:0xf4280cfb383d021c!8m2!3d44.6714778!4d20.2030388!16s%2Fg%2F11vt7t4njy?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-            Aleksandra Ace Simovića 108/3,<br>Obrenovac 11500
-          </a>
+<!-- USLUGE -->
+<div class="sec" id="usluge">
+  <div class="sec-inner">
+    <div class="sec-label reveal">Naše usluge</div>
+    <h2 class="sec-title reveal">Šta nudimo</h2>
+    <p class="sec-sub reveal">Profesionalna oprema, iskusan tim, pokrivenost cele Srbije.</p>
+    <div class="cats-grid">
+      <div class="cat reveal">
+        <div class="cat-img ci-1">🚗</div>
+        <div class="cat-body">
+          <h3>🚗 Šlepanje automobila</h3>
+          <p>Kvar, nezgoda ili hitan transport? Šlepamo sva putnička i kombi vozila do servisa ili bilo koje lokacije u Srbiji. Brzo, bezbedno, bez oštećenja.</p>
+          <span class="cat-tag">Sva vozila prihvatamo</span>
+        </div>
+      </div>
+      <div class="cat reveal">
+        <div class="cat-img ci-2">🏍️</div>
+        <div class="cat-body">
+          <h3>🏍️ Šlepanje motocikala</h3>
+          <p>Specijalizovana oprema za bezbedan prevoz svih vrsta motocikala – sportski, touring, enduro i klasični. Pažljivo rukovanje, nula rizika od oštećenja.</p>
+          <span class="cat-tag">Specijalna oprema</span>
+        </div>
+      </div>
+      <div class="cat reveal">
+        <div class="cat-img ci-3">🔧</div>
+        <div class="cat-body">
+          <h3>🔧 Hitna pomoć na putu</h3>
+          <p>Pukla guma, mrtva baterija, nestanak goriva, zaglavljivanje? Dolazimo na lice mesta i rešavamo problem odmah – bez čekanja, bez komplikacija.</p>
+          <span class="cat-tag">Dolazimo odmah</span>
         </div>
       </div>
     </div>
-    <div class="info-item reveal">
-      <div class="info-ico">🕒</div>
-      <div>
-        <div class="info-lbl">Radno vreme</div>
-        <div class="info-val">Non-stop 0–24h<br><span style="color:var(--muted);font-size:.85rem">365 dana godišnje, bez odmora</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ZAŠTO MI -->
+<div class="sec why-bg">
+  <div class="sec-inner">
+    <div class="sec-label reveal">Zašto NL Petrović</div>
+    <h2 class="sec-title reveal">Vaša sigurnost je naš prioritet</h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-ico">⚡</div>
+        <div>
+          <h4>Brz dolazak</h4>
+          <p>U proseku stižemo za 15–30 minuta u Obrenovcu i okolini. Niko ne čeka dugo kada je hitno.</p>
+        </div>
       </div>
-    </div>
-    <div class="info-item reveal">
-      <div class="info-ico">📞</div>
-      <div>
-        <div class="info-lbl">Telefon</div>
-        <div class="info-val"><a href="tel:+381637703572">+381 63 770 3572</a></div>
+      <div class="why-card reveal">
+        <div class="why-ico">🛡️</div>
+        <div>
+          <h4>Bezbedno šlepanje</h4>
+          <p>Moderna oprema i iskusan tim garantuju da će vaše vozilo stići na odredište bez i jedne ogrebotine.</p>
+        </div>
       </div>
-    </div>
-    <div class="info-item reveal">
-      <div class="info-ico">🗺️</div>
-      <div>
-        <div class="info-lbl">Pokrivenost</div>
-        <div class="info-val">Cela Srbija<br><span style="color:var(--muted);font-size:.85rem">Obrenovac · Beograd · Srbija</span></div>
+      <div class="why-card reveal">
+        <div class="why-ico">🕛</div>
+        <div>
+          <h4>Non-stop dostupnost</h4>
+          <p>Radimo 24 sata, 7 dana u nedelji, 365 dana godišnje – uključujući praznike, vikende i noćne sate.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico">💰</div>
+        <div>
+          <h4>Fer cene</h4>
+          <p>Transparentne cene bez skrivenih troškova. Kažemo vam cenu pre nego što krenemo – nikakvih iznenađenja.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico">🗺️</div>
+        <div>
+          <h4>Cela Srbija</h4>
+          <p>Pokrivamo celu teritoriju Srbije. Bez obzira gde se nalazite, dolazimo do vas.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico">📞</div>
+        <div>
+          <h4>Jedan poziv – sve</h4>
+          <p>Pozovite jedan broj i mi se brinemo za sve ostalo. Viber, poziv ili poruka – uvek odgovaramo.</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="contact-banner reveal">
-  <h3>🚨 Zaglavili ste? Pozovite odmah!</h3>
-  <p>Jedan poziv – i NL Petrović kreće prema vama. Brzo, pouzdano i bez stresa, gde god da ste u Srbiji.</p>
-  <a href="tel:+381637703572" class="btn-call-big">📞 +381 63 770 3572</a>
-</div>
+<div class="divider"></div>
 
-<div class="cta-wrap">
-  <div class="cta reveal">
-    <div class="s-label" style="color:var(--gold);display:flex;justify-content:center">Kontaktirajte nas</div>
-    <h2>Pokvarilo vam se vozilo?</h2>
-    <p>Pozovite nas ili pišite na Viber. Tu smo non-stop – 24 sata dnevno, 365 dana godišnje, na celoj teritoriji Srbije.</p>
-    <div class="cta-btns">
-      <a href="tel:+381637703572" class="btn-gold">🚨 Pozovite odmah</a>
-      <a href="viber://chat?number=%2B381637703572" class="btn-ghost">💜 Pišite na Viber</a>
+<!-- INFO BAR -->
+<div class="infobar">
+  <div class="infobar-grid">
+    <div class="ib-item reveal">
+      <div class="ib-ico">📞</div>
+      <div>
+        <div class="ib-label">Telefon</div>
+        <div class="ib-val"><a href="tel:+381637703572">+381 63 770 3572</a></div>
+      </div>
+    </div>
+    <div class="ib-item reveal">
+      <div class="ib-ico">🕛</div>
+      <div>
+        <div class="ib-label">Radno vreme</div>
+        <div class="ib-val">Non-stop 0–24h<br><small style="color:var(--muted);font-size:.8rem">365 dana, bez odmora</small></div>
+      </div>
+    </div>
+    <div class="ib-item reveal">
+      <div class="ib-ico">📍</div>
+      <div>
+        <div class="ib-label">Sedište</div>
+        <div class="ib-val"><a href="https://www.google.com/maps/place/%C5%A0lep+Slu%C5%BEba+NL+Petrovi%C4%87+Obrenovac/@44.6714778,20.2030388,17z" target="_blank">Aleksandra Ace Simovića 108/3,<br>Obrenovac 11500</a></div>
+      </div>
+    </div>
+    <div class="ib-item reveal">
+      <div class="ib-ico">🗺️</div>
+      <div>
+        <div class="ib-label">Pokrivenost</div>
+        <div class="ib-val">Cela Srbija<br><small style="color:var(--muted);font-size:.8rem">Obrenovac · Beograd · Srbija</small></div>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2 class="reveal">Zaglavili ste?<br><span>Pozovite odmah.</span></h2>
+  <p class="reveal">Jedan poziv i NL Petrović kreće prema vama. Brzo, pouzdano i bez stresa – gde god da ste u Srbiji.</p>
+  <div class="cta-row reveal">
+    <a href="tel:+381637703572" class="btn-emergency">🚨 +381 63 770 3572</a>
+    <a href="viber://chat?number=%2B381637703572" class="btn-outline">💜 Pišite na Viber</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="foot-brand">
-    <svg class="foot-logo-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="32" height="32" rx="7" fill="url(#fg)"/>
-      <text x="16" y="22" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="13" fill="#fff">NL</text>
-      <defs><linearGradient id="fg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
-    </svg>
+  <a class="foot-logo" href="#">
+    <img src="logo.png" alt="NL Petrović"/>
     <span>ŠLEP SLUŽBA NL PETROVIĆ</span>
-  </div>
+  </a>
   <div class="foot-copy">© 2025 · Aleksandra Ace Simovića 108/3, Obrenovac</div>
   <div class="foot-links">
     <a href="tel:+381637703572">Poziv</a>
     <a href="viber://chat?number=%2B381637703572">Viber</a>
+    <a href="https://www.facebook.com/slepsluzbakombiprevoznlpetrovic" target="_blank">Facebook</a>
     <a href="#usluge">Usluge</a>
-    <a href="https://www.google.com/maps/place/%C5%A0lep+Slu%C5%BEba+NL+Petrovi%C4%87+Obrenovac/@44.6714778,20.2030388,17z/data=!3m1!4b1!4m6!3m5!1s0x475a159d850b680d:0xf4280cfb383d021c!8m2!3d44.6714778!4d20.2030388!16s%2Fg%2F11vt7t4njy?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">Mapa</a>
+    <a href="https://www.google.com/maps/place/%C5%A0lep+Slu%C5%BEba+NL+Petrovi%C4%87+Obrenovac/@44.6714778,20.2030388,17z" target="_blank">Mapa</a>
   </div>
 </footer>
 
 <script>
-const pc=document.getElementById('particles');
-for(let i=0;i<40;i++){
-  const s=document.createElement('span');
-  const sz=Math.random()*2.5+.5;
-  s.style.cssText=`left:${Math.random()*100}%;width:${sz}px;height:${sz}px;
-    animation-duration:${Math.random()*20+12}s;animation-delay:${Math.random()*18}s;
-    opacity:${Math.random()*.25+.08}`;
-  pc.appendChild(s);
-}
-window.addEventListener('scroll',()=>
-  document.getElementById('nav').classList.toggle('scrolled',scrollY>40),{passive:true});
+// Scroll nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('up',scrollY>50),{passive:true});
+
+// Reveal on scroll
 const io=new IntersectionObserver(e=>{
-  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}})
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})
 },{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
