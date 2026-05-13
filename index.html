@@ -26,7 +26,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;
   backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:var(--trans)}
 nav.scrolled{padding:10px 5%;box-shadow:0 4px 30px rgba(0,0,0,.7)}
 .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo-svg{width:44px;height:44px;flex-shrink:0}
+.nav-logo{width:44px;height:44px;object-fit:contain;flex-shrink:0;border-radius:10px}
 .nav-text-wrap{display:flex;flex-direction:column}
 .nav-brand .n1{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
 .nav-brand .n2{font-size:18px;font-weight:900;
@@ -54,6 +54,10 @@ nav.scrolled{padding:10px 5%;box-shadow:0 4px 30px rgba(0,0,0,.7)}
 .hero-particles{position:absolute;inset:0;pointer-events:none}
 .hero-particles span{position:absolute;border-radius:50%;animation:float linear infinite;background:var(--gold)}
 @keyframes float{0%{transform:translateY(100vh);opacity:0}10%{opacity:.3}90%{opacity:.3}100%{transform:translateY(-10vh);opacity:0}}
+
+.hero-logo{width:100px;height:100px;object-fit:contain;
+  filter:drop-shadow(0 6px 28px rgba(232,93,4,.55));
+  border-radius:20px;animation:fadeUp .7s both}
 
 .hero-badge{display:inline-flex;align-items:center;gap:8px;
   background:rgba(232,93,4,.1);border:1px solid rgba(232,93,4,.3);
@@ -163,7 +167,7 @@ section.cats{padding:90px 5%;background:var(--dark3)}
 footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 .foot-brand{display:flex;align-items:center;gap:12px}
-.foot-logo-svg{width:32px;height:32px}
+.foot-logo{width:32px;height:32px;object-fit:contain;border-radius:7px}
 .foot-brand span{font-size:14px;font-weight:900;
   background:linear-gradient(90deg,var(--gold),var(--gold2));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -180,7 +184,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
 
 @media(max-width:768px){
   nav{padding:10px 4%;justify-content:center}
-  .nav-logo-svg{display:none}
+  .nav-logo{display:none}
   .nav-brand{justify-content:center}
   .nav-text-wrap{display:flex;align-items:center;gap:7px}
   .nav-brand .n1{display:inline;font-size:13px;letter-spacing:1px}
@@ -229,7 +233,11 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
 
 <nav id="nav">
   <a class="nav-brand" href="#">
-
+    <svg class="nav-logo-svg" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:10px">
+      <rect width="44" height="44" rx="10" fill="url(#nng)"/>
+      <text x="22" y="30" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="18" fill="#fff">NL</text>
+      <defs><linearGradient id="nng" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
+    </svg>
     <div class="nav-text-wrap">
       <span class="n1">Šlep Služba</span>
       <span class="n2">NL PETROVIĆ</span>
@@ -245,17 +253,8 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
 
 <section class="hero">
   <div class="hero-particles" id="particles"></div>
-  <div style="margin-bottom:24px;animation:fadeUp .7s both">
-    <svg width="90" height="90" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-         style="filter:drop-shadow(0 6px 28px rgba(232,93,4,.55));border-radius:20px">
-      <rect width="44" height="44" rx="10" fill="url(#hng)"/>
-      <text x="22" y="30" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="18" fill="#fff">NL</text>
-      <defs>
-        <linearGradient id="hng" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/>
-        </linearGradient>
-      </defs>
-    </svg>
+  <div style="margin-bottom:24px">
+    <img src="logo.png" alt="NL Petrović" class="hero-logo"/>
   </div>
   <div class="hero-badge"><span class="blink"></span> Non-stop 0–24h · 365 dana · Cela Srbija</div>
   <h1>Šlep služba koja stiže<br>kada vam je <em>najpotrebnije</em></h1>
@@ -265,8 +264,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
     Krećemo odmah po pozivu, stižemo za 15–30 minuta.
   </p>
   <div class="hero-cta">
-    <a href="tel:+381637703572" class="btn-gold">🚨 Pozovite odmah – +381 63 770 3572</a>
-    <a href="viber://chat?number=%2B381637703572" class="btn-ghost" style="color:#c084fc;border-color:rgba(124,58,237,.4)">💜 Pišite na Viber</a>
+    <a href="tel:+381637703572" class="btn-gold">🚨 Pozovite hitno – +381 63 770 3572</a>
   </div>
   <div class="scroll-ind">↓</div>
 </section>
@@ -384,14 +382,10 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
 
 <footer>
   <div class="foot-brand">
-    <svg class="foot-logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="foot-logo-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="32" height="32" rx="7" fill="url(#fg)"/>
       <text x="16" y="22" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="13" fill="#fff">NL</text>
-      <defs>
-        <linearGradient id="fg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/>
-        </linearGradient>
-      </defs>
+      <defs><linearGradient id="fg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
     </svg>
     <span>ŠLEP SLUŽBA NL PETROVIĆ</span>
   </div>
