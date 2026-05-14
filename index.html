@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sr">
 <head>
@@ -184,14 +183,34 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
 @media(max-width:900px){.cats-grid{grid-template-columns:1fr 1fr}}
 
 @media(max-width:768px){
-  nav{padding:10px 4%;justify-content:center}
+  nav{
+    padding:8px 4%;
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+  }
   .nav-logo{display:none}
   .nav-brand{justify-content:center}
   .nav-text-wrap{display:flex;align-items:center;gap:7px}
   .nav-brand .n1{display:inline;font-size:13px;letter-spacing:1px}
   .nav-brand .n2{font-size:15px}
-  .nav-btns{display:none}
-  .hero{padding:100px 6% 70px}
+  .nav-btns{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:6px;
+  }
+  .nav-btns .b-call{display:none}
+  .nav-btns a{
+    padding:7px 4px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:700;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .hero{padding:130px 6% 70px}
   .hero h1{font-size:1.9rem}
   .hero-sub{font-size:.95rem}
   .hero-badge{font-size:12px;padding:6px 14px}
@@ -234,7 +253,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
 
 <nav id="nav">
   <a class="nav-brand" href="#">
-    <svg class="nav-logo-svg" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:10px">
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:10px;flex-shrink:0">
       <rect width="44" height="44" rx="10" fill="url(#nng)"/>
       <text x="22" y="30" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="18" fill="#fff">NL</text>
       <defs><linearGradient id="nng" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
@@ -383,7 +402,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 5%
 
 <footer>
   <div class="foot-brand">
-    <svg class="foot-logo-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="32" height="32" rx="7" fill="url(#fg)"/>
       <text x="16" y="22" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="13" fill="#fff">NL</text>
       <defs><linearGradient id="fg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#e85d04"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
